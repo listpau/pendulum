@@ -403,9 +403,9 @@ function createScene() {
     temp_geom = new THREE.CylinderGeometry(0.3, 0.3, 0.3, 20, 20, false);
 
     temp_material = new THREE.MeshLambertMaterial( { } );
-    temp_material.color.r = 1;
-    temp_material.color.g = 0;
-    temp_material.color.b = 0;
+    temp_material.color.r = 0.5;
+    temp_material.color.g = 0.5;
+    temp_material.color.b = 1;
     temp_material.transparent = false;
 
     pendulum.geom = new THREE.Mesh(temp_geom, temp_material);
@@ -420,7 +420,7 @@ function createScene() {
     pendulum_link.position = {x:0,z:pendulum.length/2,y:0};
     pendulum.geom.add(pendulum_link);
 
-    temp_geom = new THREE.SphereGeometry(Math.sqrt(pendulum.mass*0.1));
+    temp_geom = new THREE.SphereGeometry(Math.sqrt(pendulum.mass*0.1),24,12);
     pendulum_mass = new THREE.Mesh(temp_geom, temp_material);
     pendulum_mass.position = {x:0,y:-pendulum.length/2,z:0};
     pendulum_link.add(pendulum_mass);
