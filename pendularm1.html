@@ -139,13 +139,6 @@ function animate() {
     if ( keyboard.pressed("q") )
         pendulum.desired += -0.05; // move the desired angle for the servo
 
-
-    // add user force from user interaction
-    if ( keyboard.pressed("d") )
-        pendulum.control += 50.0;  // add a motor force to the pendulum motor
-    else if ( keyboard.pressed("a") )
-        pendulum.control += -50.0; // add a motor force to the pendulum motor
-
     // STENCIL: implement servo controller
     angle_error = pendulum.desired - pendulum.angle;
     angle_error_dot = pendulum.desired_dot - pendulum.angle_dot;
@@ -156,6 +149,12 @@ function animate() {
     pendulum.control = pendulum.servo.kp * angle_error + pendulum.servo.ki * accumulated_error + pendulum.servo.kd * angle_error_dot;
     accumulated_error += angle_error;
 
+    // add user force from user interaction
+    if ( keyboard.pressed("d") )
+        pendulum.control += 50.0;  // add a motor force to the pendulum motor
+    else if ( keyboard.pressed("a") )
+        pendulum.control += -50.0; // add a motor force to the pendulum motor
+    
     // toggle activation of servo controller from user interaction
     if (keyboard.pressed("c"))
         servo_active_persist = !servo_active_persist;
@@ -280,15 +279,15 @@ function animate() {
         " gravity = " + gravity.toFixed(2) +
 //        "<br>" +
 //        " pendulum control = " + pendulum.control.toFixed(2) +
-        "<br><br>  Keys <br> " +
-        " [0-4] - select integrator " +
-        "<br>" +
-        " a/d - apply user force " +
-        "<br>" +
-        " q/e - adjust desired angle " +
-        "<br>" +
-        " c|x - toggle servo " +
-        "<br>" +
+        "<br><br>  Keys     <br> " +
+        " 0 - Rotate CCW    <br>" +
+        " 1 - Euler         <br>" +
+        " 2 - Verlet        <br>" +
+        " 3 - Velocity Verlet       <br>" +
+        " 4 - Runge-Kutte           <br>" +
+        " a/d - Perturb             <br>" +
+        " q/e - Adjust desired angle <br>" +
+        " c - enable servo          <br>" +
         " s - disable servo "
 
     ;
