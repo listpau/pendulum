@@ -195,7 +195,9 @@ function animate() {
 
     // STENCIL: a correct velocity Verlet integrator is REQUIRED for assignment
 
-    pendulum.angle_next = 2*pendulum.angle - pendulum.angle_previous + (pendulum_acceleration(pendulum, gravity))*dt*dt;
+//     pendulum.angle_next = 2*pendulum.angle - pendulum.angle_previous + (pendulum_acceleration(pendulum, gravity))*dt*dt;
+    pendulum.angle_next = pendulum.angle + pendulum.angle_dot*dt + (1/2)*(pendulum_acceleration(pendulum, gravity))*dt*dt;
+
     pendulum.angle_previous = pendulum.angle;
 
     pendulum.angle_dot_next = pendulum.angle_dot + ((pendulum_acceleration(pendulum, gravity) + pendulum_acceleration_next(pendulum, gravity))/2)*dt
