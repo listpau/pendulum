@@ -414,7 +414,7 @@ function createScene() {
     scene.add(pendulum.geom);
     pendulum.geom.position = {x:0,y:1.5,z:0};
 
-    temp_geom = new THREE.CylinderGeometry(0.2, 0.2, pendulum.length, 20, 20, false);
+    temp_geom = new THREE.CylinderGeometry(0.1, 0.1, pendulum.length, 20, 20, false);
     pendulum_link = new THREE.Mesh(temp_geom, temp_material);
     pendulum_link.rotateOnAxis(new THREE.Vector3(1,0,0),-Math.PI/2);
     pendulum_link.position = {x:0,z:pendulum.length/2,y:0};
