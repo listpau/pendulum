@@ -4,3 +4,4 @@
 ![Jetpacktocat](https://octodex.github.com/images/jetpacktocat.png)
 <br />
 # [Pendulum Demo](https://listpau.github.io/pendulum/pendularm1.html)
+# [Double Pendulum Demo](https://listpau.github.io/pendulum/pendularm2.html)
